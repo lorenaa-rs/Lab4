@@ -17,52 +17,64 @@
   </head>
 
   <body>
-    <!-- JB -->
-
     <div class="flex flex-col items-center justify-center text-4xl">
-      <div class="mt-16">
+      <div class="mt-16 flex-col">
         <h1>
           <span
-            class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-blue-500"
-            >Algoritmo de Berkeley para Sincronización de Relojes</span
+            class="bg-clip-text text-7xl text-transparent bg-gradient-to-r from-indigo-400 to-blue-500"
+            >Servidor Coordinador</span
           >
         </h1>
+        <span
+          class="bg-clip-text text-4xl text-transparent bg-gradient-to-r from-indigo-400 to-blue-500"
+          >Algoritmo de Berkeley para Sincronización de Relojes</span
+        >
       </div>
-      <div
-        class="rounded-lg mt-16 p-16 flex-row items-center tracking-widest justify-center border-indigo-300 border-2"
+
+      <p class="mt-16">Servidores Registrados:</p>
+
+      <div class="overflow-x-auto">
+        <div
+          class="bg-gray-100 flex items-center justify-center bg-gray-100 font-sans overflow-hidden"
+        >
+          <div class="w-full">
+            <div class="bg-white shadow-md rounded my-6">
+              <table id="table-servers" class="min-w-max w-full table-auto">
+                <thead>
+                  <tr
+                    class="bg-indigo-200 text-indigo-600 uppercase text-sm leading-normal"
+                  >
+                    <th class="py-3 px-6 text-left">Dirección IP</th>
+                    <th class="py-3 px-6 text-left">Puerto</th>
+                  </tr>
+                </thead>
+                <tbody class="text-gray-600 text-sm">
+                  <tr
+                    class="border-b border-gray-200 bg-gray-50 hover:bg-gray-100"
+                  >
+                    <td class="py-3 px-6 text-left">
+                      <div class="flex items-center"></div>
+                    </td>
+                    <td class="py-3 px-6 text-left">
+                      <div class="flex items-center"></div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button
+        onclick="newInstance()"
+        class="p-4 h-15 focus:outline-none w-15 bg-indigo-500 hover:bg-indigo-700 rounded-full p-3 text-white items-center flex justify-center"
       >
-        <p id="clock-show" class="text-7xl"></p>
-      </div>
-      <div class="mt-6 flex flex-row">
-        <div>
-          <input type="time" id="new-time" class="text-2xl mr-7" />
-        </div>
-        <div>
-          <button            
-            class="h-15 focus:outline-none w-15 bg-indigo-500 hover:bg-indigo-700 rounded-full p-3 text-white items-center flex justify-center"
-          >            
-            <i class="material-icons">done</i>
-            
-          </button>
-        </div>
-      </div>
-      
-      <div class="mt-8 overflow-scroll">
-        <table id="table-log" class="table-auto">
-          <thead>
-            <tr
-              class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal"
-            >
-              <th class="py-3 px-6 text-center">Hora anterior</th>
-              <th class="py-3 px-6 text-center">Ajuste (En segundos)</th>
-              <th class="py-3 px-6 text-center">Nueva hora</th>
-            </tr>
-          </thead>
-        </table>
-      </div>
-      
+        <i class="material-icons">note_add</i>
+        <span class="ml-4 text-lg">Añadir nueva instancia</span>
+      </button>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script src="main.js"></script>
   </body>
