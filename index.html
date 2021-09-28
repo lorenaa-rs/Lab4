@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Orbitron"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="main.css" />
+    <title>Berkeley Algorithm</title>
+  </head>
+
+  <body>
+    <!-- JB -->
+
+    <div class="flex flex-col items-center justify-center text-4xl">
+      <div class="mt-16">
+        <h1>
+          <span
+            class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-blue-500"
+            >Algoritmo de Berkeley para Sincronización de Relojes</span
+          >
+        </h1>
+      </div>
+      <div
+        class="rounded-lg mt-16 p-16 flex-row items-center tracking-widest justify-center border-indigo-300 border-2"
+      >
+        <p id="clock-show" class="text-7xl"></p>
+      </div>
+      <div class="mt-6 flex flex-row">
+        <div>
+          <input type="time" id="new-time" class="text-2xl mr-7" />
+        </div>
+        <div>
+          <button            
+            class="h-15 focus:outline-none w-15 bg-indigo-500 hover:bg-indigo-700 rounded-full p-3 text-white items-center flex justify-center"
+          >            
+            <i class="material-icons">done</i>
+            
+          </button>
+        </div>
+      </div>
+      
+      <div class="mt-8 overflow-scroll">
+        <table id="table-log" class="table-auto">
+          <thead>
+            <tr
+              class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal"
+            >
+              <th class="py-3 px-6 text-center">Hora anterior</th>
+              <th class="py-3 px-6 text-center">Ajuste (En segundos)</th>
+              <th class="py-3 px-6 text-center">Nueva hora</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+      
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
